@@ -33,7 +33,7 @@ def client_create():
         dict_body["group_id"] = 5
 
         if validate_email(dict_body["email"]):
-            raise UnauthorizedError('Usuário com este e-mail já existe!')
+            raise UnauthorizedError('User with this email already exists!')
 
         try:
             item = User().create_item(dict_body).save()
@@ -108,15 +108,15 @@ def recover():
 
             # ENVIAR EMAIL PARA RECUPERAR SENHA
             to = item.email
-            subject = "Solicitação para configurar nova senha"
+            subject = "Request to set new password"
 
             body = render_template('email/reset.html', name=item.name,
                                    email=to, password=password,
-                                   url_confirm=f'{Config.SITE_HTTPS}/minha-conta/resetar-senha?hash={token}')
+                                   url_confirm=f'{Config.SITE_HTTPS}/account/reset-pass?hash={token}')
 
             EmailService().send_aws(to, subject, body)
 
-            msg = "E-mail enviado com Sucesso! Verifique sua caixa de e-mail!"
+            msg = "Email successfully sent! Check your email box!"
             return default_return(200, msg)
         else:
-            raise UnauthorizedError('Usuário não encontrado!')
+            raise UnauthorizedError('User not found!')

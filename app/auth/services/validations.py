@@ -14,7 +14,7 @@ def validate_token(basic, params):
         username = params["username"]
         password = params["password"]
     except:
-        raise UnauthorizedError("Alguma coisa deu errado")
+        raise UnauthorizedError("Unexpected error")
 
     user = User.query.filter(User.deleted_at == None, User.status == 1)
 

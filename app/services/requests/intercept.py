@@ -11,7 +11,7 @@ def intercept_admin_user(f):
         jwt_group_id = get_jwt_identity()['group_id']
 
         if jwt_group_id == 5:
-            raise UnauthorizedError('Usuário não autorizado!')
+            raise UnauthorizedError('User not found!')
 
         return f(*args, **kwargs)
 

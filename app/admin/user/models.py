@@ -10,7 +10,7 @@ from app.services.sqlalchemy.models import BaseModel
 """
 Credential levels
 
-1 - System / Sistema (desenvolvedores)
+1 - System
 2 - Admin
 3 - Editor
 4 - Autor
