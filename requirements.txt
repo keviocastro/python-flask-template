@@ -1,0 +1,17 @@
+boto3
+Flask
+Passlib
+Flask-Caching
+Flask-SQLAlchemy
+Flask-JWT-Extended
+flask-migrate
+flask-marshmallow
+Flask_Cors
+SQLAlchemy
+Redis
+requests
+waitress
+marshmallow-sqlalchemy
+PyMySQL
+python-dotenv
+slugify
